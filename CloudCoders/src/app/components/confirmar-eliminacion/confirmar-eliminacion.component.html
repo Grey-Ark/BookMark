@@ -1,0 +1,22 @@
+<!-- Fondo overlay -->
+<div class="modal-overlay"></div>
+
+<!-- Modal -->
+<div class="modal-container">
+  <div class="modal-header">
+    <h2>Confirmar eliminación</h2>
+  </div>
+
+  <div class="modal-body">
+    <p>¿Estás seguro de eliminar <strong class="highlight">{{ titulo }}</strong>?</p>
+  </div>
+
+  <div class="modal-footer">
+    <ion-button expand="block" color="danger" class="btn-accept" (click)="confirmar()">
+      ACEPTAR
+    </ion-button>
+    <ion-button expand="block" fill="clear" class="btn-cancel" (click)="cancelar()">
+      CANCELAR
+    </ion-button>
+  </div>
+</div>

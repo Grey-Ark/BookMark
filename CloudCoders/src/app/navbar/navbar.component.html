@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>BookMark.com</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openMenu($event)">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-popover [isOpen]="menuOpen" [event]="event" (didDismiss)="menuOpen = false">
+  <ion-content class="popover-content">
+    <ion-list>
+      <ion-item (click)="salir()">Salir</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-popover>

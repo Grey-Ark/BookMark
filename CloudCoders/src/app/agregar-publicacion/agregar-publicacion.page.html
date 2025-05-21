@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+
+<ion-content class="ion-padding">
+  <div class="formulario-publicacion">
+    <h1 class="form-title">
+      {{ modoEdicion ? 'Editar Publicación' : 'Agregar Nueva Publicación' }}
+    </h1>
+
+    <form (ngSubmit)="guardarPublicacion()" #publicacionForm="ngForm" novalidate>
+      <!-- Campo de Título -->
+      <ion-item class="full-width" lines="full">
+        <ion-label position="floating">Título *</ion-label>
+        <ion-input
+          [(ngModel)]="publicacion.titulo"
+          name="titulo"
+          required
+          (ionChange)="actualizarEstadoBoton()"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo de Descripción -->
+      <ion-item class="full-width" lines="full">
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-textarea
+          [(ngModel)]="publicacion.descripcion"
+          name="descripcion"
+          rows="4"
+        ></ion-textarea>
+      </ion-item>
+
+      <!-- Campos de Archivos -->
+      <div class="file-upload-section">
+        <!-- PDF -->
+        <ion-item class="file-upload-item" lines="none">
+          <ion-label>Documento PDF *</ion-label>
+          <input
+            type="file"
+            #pdfInput
+            (change)="onFileSelected($event, 'archivo')"
+            accept=".pdf"
+            hidden
+          />
+          <ion-button fill="clear" (click)="pdfInput.click()">
+            <ion-icon name="document-attach-outline" slot="start"></ion-icon>
+            {{ archivoNombre || 'Seleccionar PDF' }}
+          </ion-button>
+        </ion-item>
+
+        <!-- Imagen -->
+        <ion-item class="file-upload-item" lines="none">
+          <ion-label>Imagen de Portada *</ion-label>
+          <input
+            type="file"
+            #imgInput
+            (change)="onFileSelected($event, 'imagen')"
+            accept="image/*"
+            hidden
+          />
+          <ion-button fill="clear" (click)="imgInput.click()">
+            <ion-icon name="image-outline" slot="start"></ion-icon>
+            {{ imagenNombre || 'Seleccionar Imagen' }}
+          </ion-button>
+        </ion-item>
+
+        <!-- Vista previa de imagen -->
+        <div class="image-preview" *ngIf="imagenPrevia">
+          <img [src]="imagenPrevia" alt="Vista previa de la imagen" />
+        </div>
+      </div>
+
+      <!-- Fila de Selects -->
+      <div class="form-row">
+        <!-- Tipo -->
+        <ion-item lines="full" class="half-width">
+          <ion-label>Tipo *</ion-label>
+          <ion-select
+            [(ngModel)]="publicacion.tipo"
+            name="tipo"
+            interface="popover"
+            required
+            (ionChange)="actualizarEstadoBoton()"
+          >
+            <ion-select-option value="libro">Libro</ion-select-option>
+            <ion-select-option value="revista">Revista</ion-select-option>
+            <ion-select-option value="periodico">Periódico</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Categoría -->
+        <ion-item lines="full" class="half-width">
+          <ion-label>Categoría *</ion-label>
+          <ion-select
+            [(ngModel)]="publicacion.categoria"
+            name="categoria"
+            interface="popover"
+            required
+            (ionChange)="actualizarEstadoBoton()"
+          >
+            <ion-select-option value="ciencia">Ciencia</ion-select-option>
+            <ion-select-option value="historia">Historia</ion-select-option>
+            <ion-select-option value="literatura">Literatura</ion-select-option>
+            <ion-select-option value="tecnologia">Tecnología</ion-select-option>
+            <ion-select-option value="arte">Arte</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <!-- Disponible -->
+      <ion-item lines="full" class="full-width toggle-container">
+        <ion-label>Disponible</ion-label>
+        <ion-toggle
+          [(ngModel)]="publicacion.disponible"
+          name="disponible"
+          [checked]="publicacion.disponible"
+        ></ion-toggle>
+      </ion-item>
+
+      <!-- Botón de envío -->
+      <ion-button
+        #submitButton
+        expand="block"
+        type="submit"
+        color="primary"
+        class="btn-submit"
+        [disabled]="true"
+      >
+        {{ modoEdicion ? 'Actualizar Publicación' : 'Guardar Publicación' }}
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

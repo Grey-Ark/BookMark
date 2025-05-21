@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<ion-content class="ion-padding">
+  <ion-title>Registro de Estudiante</ion-title>
+  <form (submit)="register()">
+
+    <ion-item>
+      <ion-label position="floating">Correo Personal</ion-label>
+      <ion-input type="email" [(ngModel)]="correoPersonal" name="correoPersonal" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="contrasena" name="contrasena" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" class="btn-register">Registrarse</ion-button>
+    <ion-button expand="full" class="btn-back" (click)="goBack()">Volver</ion-button>
+  </form>
+</ion-content>

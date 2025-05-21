@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+ion-content {
+  display: flex !important;
+  justify-content: center !important;  /* Centrar horizontalmente */
+  align-items: flex-start !important;  /* Cambia a 'center' para centrar verticalmente */
+  height: 100vh;                        /* Para que el flex funcione verticalmente */
+  padding: 20px 0 !important;
+  --padding-start: 400px !important;
+  --padding-end: 0 !important;
+  --background: #f9f9f9 !important;
+}
+
+.formulario-publicacion {
+  width: 100%;
+  max-width: 600px;           /* Máximo ancho del formulario */
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+  /* Sin margin ni display flex */
+}
+
+/* Título */
+.form-title {
+  text-align: center;
+  color: #0C0042;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+/* Formulario en una sola columna */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Items full width */
+ion-item.full-width {
+  --background: #fff;
+  --border-radius: 10px;
+  --border-color: #0C0042;
+  --border-width: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Contenedor para select y toggle en fila */
+.form-row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Mitad de ancho para selects */
+.half-width {
+  flex: 1 1 48%;
+  --background: #fff;
+  --border-radius: 10px;
+  --border-color: #0C0042;
+  --border-width: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Toggle container para alinear mejor */
+.toggle-container {
+  --background: #fff;
+  --border-radius: 10px;
+  --border-color: #0C0042;
+  --border-width: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Labels */
+ion-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0C0042 !important;
+}
+
+/* Inputs y textarea */
+ion-input, ion-textarea {
+  --color: #000;
+  font-size: 1rem;
+  padding: 8px 12px;
+}
+
+/* Botón enviar */
+ion-button.btn-submit {
+  --background: #0C0042 !important;
+  --color: #fff !important;
+  border-radius: 30px;
+  font-weight: 700;
+  height: 48px;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgb(12 0 66 / 0.3);
+  transition: background-color 0.3s ease;
+}
+
+ion-button.btn-submit:hover {
+  --background: #081f57 !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+  }
+  .half-width {
+    flex: 1 1 100%;
+  }
+}

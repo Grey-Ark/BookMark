@@ -1,0 +1,96 @@
+<app-navbar></app-navbar>
+
+<ion-content class="content">
+  <img src="assets/home.jpeg" alt="Logo" class="logo">
+
+  <ion-header>
+    <ion-toolbar color="light">
+      <ion-searchbar
+        [(ngModel)]="titulo"
+        (ionInput)="buscarPorTitulo($event)"
+        placeholder="Buscar por título">
+      </ion-searchbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="toggleFiltros()">
+          <ion-icon name="funnel-outline"></ion-icon>
+          Filtros
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Filtros -->
+  <ion-card *ngIf="mostrarFiltros" class="filtro-card">
+    <ion-card-content>
+      <ion-item>
+        <ion-select [(ngModel)]="tipo" placeholder="Selecciona un tipo">
+          <ion-select-option value="libro">Libro</ion-select-option>
+          <ion-select-option value="revista">Revista</ion-select-option>
+          <ion-select-option value="periodico">Periódico</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select [(ngModel)]="categorias" multiple="true" placeholder="Selecciona una categorías">
+          <ion-select-option value="ficcion">Ficción</ion-select-option>
+          <ion-select-option value="historia">Historia</ion-select-option>
+          <ion-select-option value="ciencia">Ciencia</ion-select-option>
+          <ion-select-option value="arte">Arte</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="block" color="tertiary" (click)="aplicarFiltros()">Filtrar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón para agregar PDF -->
+  <ion-button expand="block" color="primary" *ngIf="esAdmin" (click)="agregarPublicacion()">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    Agregar Publicación
+  </ion-button>
+
+  <!-- Lista de publicaciones -->
+  <ion-grid class="lista-publicaciones">
+    <ion-row>
+      <ion-col
+        size="6"
+        size-md="3"
+        *ngFor="let pub of publicaciones; let i = index"
+        class="tarjeta-publicacion"
+      >
+        <ion-card>
+          <img 
+            [src]="pub.imagen?.startsWith('http') ? pub.imagen : 'http://localhost:4000' + pub.imagen" 
+            alt="{{ pub.titulo }}" 
+            class="portada-img"
+          />
+          <ion-card-content>
+            <div class="titulo">{{ pub.titulo }}</div>
+            <small class="tipo">{{ pub.tipo }}</small>
+            <ion-button expand="block" size="small" color="success" (click)="abrirPDF(pub)">
+              Leer
+            </ion-button>
+
+            <!-- Botones solo visibles para el administrador -->
+            <ion-button
+              expand="block"
+              size="small"
+              color="warning"
+              *ngIf="esAdmin"
+              (click)="editarPublicacion(i)">
+              Editar
+            </ion-button>
+            <ion-button
+              expand="block"
+              size="small"
+              color="danger"
+              *ngIf="esAdmin"
+              (click)="eliminarPublicacion(i)">
+              Eliminar
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

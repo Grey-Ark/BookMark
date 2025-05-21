@@ -1,0 +1,63 @@
+/* Contenedor general */
+.pdf-container {
+    width: 100vw;
+    height: 90vh;
+    border-bottom: 4px solid #ccc;
+    display: flex;
+    justify-content: center; /* 🔵 Centra el visor horizontalmente */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: rgb(241, 241, 241);
+  }
+  
+  /* Visor PDF con ancho reducido */
+  .pdf-viewer {
+    width: 70%;       /* 🔵 Ancho personalizado */
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden !important;
+    max-width: 100%;
+  }
+  
+  
+  /* Elimina scroll horizontal dentro del visor PDF */
+  ::ng-deep .ng2-pdf-viewer-container {
+    overflow-x: hidden !important;
+  }
+  
+  /* ion-content sin relleno ni scroll lateral */
+  ion-content {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Estilo del grid de publicaciones */
+  .lista-publicaciones {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Tarjetas de publicaciones */
+  .tarjeta-publicacion {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Imágenes de portada */
+  .portada-img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+  

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ion-content {
+  --background: #ffffff !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la pantalla */
+  text-align: center;
+}
+
+/* Encabezado centrado */
+ion-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-toolbar {
+  text-align: center;
+  --background: white !important;
+  --color: #0C0042 !important;
+}
+
+/* Logo */
+.logo {
+  width: 180px; /* Aumentado el tamaño */
+  max-width: 100%; /* Asegura que no se desborde en pantallas pequeñas */
+  margin-bottom: 25px; /* Un poco más de espacio debajo */
+}
+
+/* Contenedor del formulario */
+.login-container {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border: 2px solid #0C0042;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 450px;
+
+}
+
+h2 {
+  color: #0C0042;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Inputs */
+ion-item {
+  --background: white;
+  --border-radius: 5px;
+  --border-color: #0C0042;
+  --border-width: 2px;
+  --inner-padding-start: 10px;
+  --inner-padding-end: 10px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+ion-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0C0042 !important;
+}
+
+/* Botón "Entrar" */
+.btn-login {
+  --background: #0C0042 !important;
+  --color: white !important;
+  --border-radius: 25px !important;
+  --box-shadow: none !important;
+  font-weight: bold;
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
+}
+
+/* Botón "Registrarse" */
+.btn-register {
+  background: none;
+  border: none;
+  color: #0C0042;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  margin-top: 10px;
+}

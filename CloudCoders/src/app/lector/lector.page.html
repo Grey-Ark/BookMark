@@ -1,0 +1,50 @@
+<!-- lector.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Contenedor del visor PDF -->
+  <div class="pdf-container">
+    <pdf-viewer 
+      [src]="archivo"
+      [render-text]="true"
+      [original-size]="false"
+      [fit-to-page]="true"
+      style="width: 100%; height: 100vh; display: block;"
+    ></pdf-viewer>
+  </div>
+
+  <!-- Lista de publicaciones -->
+  <ion-grid class="lista-publicaciones">
+    <ion-row>
+      <ion-col
+        size="6"
+        size-md="3"
+        *ngFor="let pub of publicaciones"
+        class="tarjeta-publicacion"
+      >
+        <ion-card (click)="abrirPDF(pub)">
+          <img 
+            [src]="pub.portada" 
+            alt="{{ pub.titulo }}" 
+            class="portada-img" 
+          />
+          <ion-card-content>
+            <div class="titulo">{{ pub.titulo }}</div>
+            <small class="tipo">{{ pub.tipo }}</small>
+            <br />
+            <a 
+              [href]="pub.archivo_pdf" 
+              target="_blank"
+            >
+              Ver PDF
+            </a>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
