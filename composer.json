@@ -1,0 +1,13 @@
+{
+  "require": {
+    "slim/slim": "^4.0",
+    "slim/psr7": "^1.7",
+    "firebase/php-jwt": "^6.0",
+    "kreait/firebase-php": "^5.26"
+  },
+  "autoload": {
+    "psr-4": {
+      "": ""
+    }
+  }
+}

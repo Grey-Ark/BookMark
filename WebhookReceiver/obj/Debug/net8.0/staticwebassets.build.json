@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "5PwG5Z99GOtW8WKqYFmV9+TOOwJ9Yrdt2xsbtVefXr8=",
+  "Source": "WebhookReceiver",
+  "BasePath": "_content/WebhookReceiver",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "WebhookReceiver.Controllers.WebhookController",
+    "Method": "ReceiveWebhook",
+    "RelativePath": "api/Webhook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
